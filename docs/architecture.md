@@ -60,7 +60,7 @@ prefix of the ranking rebuilt from the reports.
 
 Each response is capped at 8 MiB and the report set at 64 MiB. Transport, HTTP
 404/408/409/425/429/5xx, JSON and revision-change errors get at most three
-attempts inside one 30-second deadline; stable gates fail at once.
+attempts inside one 120-second deadline; stable gates fail at once.
 
 Reads are uncached for report intake and for `get_weights`. `/health` and
 `/v1/status` share a probe cached 15 seconds on success and 5 seconds on failure.

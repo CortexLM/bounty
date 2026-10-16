@@ -230,7 +230,9 @@ class PublicBackend:
     _MAX_RESPONSE_BYTES = 8 * 1024 * 1024
     _MAX_REPORT_BYTES = 64 * 1024 * 1024
     _MAX_REPORT_PAGES = 10_000
-    _SNAPSHOT_TIMEOUT_SECONDS = 30.0
+    # ponytail: a full read of ~21k reports took 37 s on 2026-10-16; move to an
+    # incremental cached snapshot when it approaches this ceiling.
+    _SNAPSHOT_TIMEOUT_SECONDS = 120.0
     _SNAPSHOT_ATTEMPTS = 3
     _SNAPSHOT_RETRY_DELAY_SECONDS = 0.25
     _PROBE_SUCCESS_TTL_SECONDS = 15.0
